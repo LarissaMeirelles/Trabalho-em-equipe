@@ -1,0 +1,507 @@
+@charset "UTF-8";
+* {
+    margin: 0; /* "reseta" margin dos elementos para 0 */
+    padding: 0; /* "reseta" padding dos elementos para 0 */
+    box-sizing: border-box; /* ajuda na responsividade; calcula margin e padding junto com width e height */
+}
+/* paletas de cores
+rosa #F390A2
+areia #F1EBDF
+marrom #8D5B3A
+marrom claro #987358
+azul #92D2C1
+*/
+body {
+    background-color: white;
+    font-family: 'Satisfy', cursive;
+}
+h1 {
+    padding: 10px;
+    display: inline;
+    text-align: center;
+    font-size: 40px;
+    background-color: #92D2C1;
+    color: white;
+    box-shadow: -5px -5px #92D2C1;
+    text-shadow: 0 0 2px black;
+    border: 2px dashed black;
+    border-radius: 25px;
+}
+p {
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: justify;
+    font-size: 20px;
+    color: #987358;
+}
+/* nav */
+div#nav {
+    width: auto;
+    height: 120px;
+    background-color: #8D5B3A;
+}
+nav {
+    width: 100%;
+    position: fixed; /* fixa a barra de navegação quando rola a página */
+    top: 0;
+    padding: 10px 0;
+    display: flex; /* posiciona logo e links de navegação lado a lado */
+    justify-content: center; /* centraliza na horizontal */
+    align-items: center; /* centraliza na vertical */
+    background-color: rgba(141, 91, 58, 0.95); /* cor de fundo e opacidade 0.95 */
+}
+div#logo {
+    margin-right: 100px; /* distância da logo com os links de navegação */
+    background-image: url("../imagens/logo.jpg"); /* logo */
+    background-size: cover; /* aparece toda a imagem */
+    width: 100px;
+    height: 100px;
+    transition: 0.5s;
+    border-radius: 50%; /* arrendonda a imagem para um circulo */
+    box-shadow: 0 0 0 5px #F390A2;
+    border: 2px dashed black;
+}
+ul.nav li {
+    margin: 0px 50px;
+    display: inline-block; /* tranforma a lista (links de navegação), deixando os itens lado a lado */
+    font-size: 25px;
+    border-radius: 50px;
+    border: 2px dashed rgba(0, 0, 0, 0);
+}
+ul.nav li:hover, li#hover {
+    background-color: #F390A2;
+    box-shadow: -5px 5px #F390A2;
+    border: 2px dashed black;
+}
+a {
+    text-decoration: none; /* tira a linha abaixo dos links de navegação */
+    color: white;
+}
+/* slide */
+section.slide {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-image: url('../imagens/estampa-1.jpg');
+}
+img#myImage {
+    margin: 50px auto 0;
+    max-width: 100%;
+    max-height: 500px;
+}
+div.img-button button {
+    margin: 20px;
+    padding: 10px;
+    border-radius: 50%;
+}
+div.img-button button:hover {
+    background-color: #F390A2;
+    box-shadow: 2px 2px #F390A2;
+    border: 2px dashed black;
+}
+/* destaque */
+section.produtos {
+    padding: 50px 0;
+    background-image: url('../imagens/estampa-2.jpg');
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+div.produtos {
+    display: flex; /* posiciona itens de destaque lado a lado */
+    justify-content: center; /* centraliza na horizontal */
+    flex-wrap: wrap; /* "quebra" de itens de destaque quando a tela muda de tamanho */
+}
+div.produtos > div { /* filhos da div.produtos; neste caso todas as sub divs */
+    margin: 50px;
+    padding: 10px;
+    flex-shrink: 0; /* impede que os itens se "quebre"; manterão seus tamanhos */
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #F1EBDF;
+    border: 2px dashed black;
+}
+img.itens {
+    max-width: 250px;
+    border-radius: 10px;
+}
+p.doce {
+    font-size: 15px;
+    margin: 5px;
+    color: black;
+}
+p.valor {
+    margin: 5px;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+    color: black;
+}
+p.adicionar {
+    padding: 10px 0;
+    width: 250px;
+    height: 50px;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #8D5B3A;
+    color: white;
+    border-radius: 10px;
+    box-shadow: 5px 5px #92D2C1;
+}
+p.adicionar:hover {
+    cursor: pointer;
+    background-color: #987358;
+}
+/* carrinho */
+.sidenav .closebtn {
+    position: absolute;
+}
+.sidenav {
+    padding: 15px;
+    display: none;
+    height: 500px;
+    width: 350px;
+    position: fixed;
+    bottom: 0;
+    right: 50px;
+    background-color: #92D2C1;
+    box-shadow: -10px 10px #92D2C1;
+    border: 2px dashed black;
+    border-radius: 25px 25px 0 0;
+}
+div.sidenav div {
+    display: flex;
+    justify-content: center;
+}
+.sidenav p {
+    display: inline;
+    font-family: 'Satisfy', cursive;
+    color: white;
+    border: 2px dashed rgba(0, 0, 0, 0);
+}
+p#maxNav {
+    display: none;
+    border: 2px dashed rgba(0, 0, 0, 0);
+}
+p#minNav {
+    border: 2px dashed rgba(0, 0, 0, 0);
+}
+p#maxNav:hover {
+    display: inline;
+    background-color: #F390A2;
+    box-shadow: -5px 5px #F390A2;
+    border: 2px dashed black;
+    border-radius: 15px;
+    cursor: pointer;
+}
+p#minNav:hover {
+    display: inline;
+    background-color: #F390A2;
+    box-shadow: -5px 5px #F390A2;
+    border: 2px dashed black;
+    border-radius: 15px;
+    cursor: pointer;
+}
+.closebtn {
+    top: 10px;
+    right: 10px;
+}
+.sidenav a {
+    padding: 0 10px;
+    border: 2px dashed rgba(0, 0, 0, 0);
+    font-size: 25px;
+}
+.sidenav a:hover {
+    background-color: #F390A2;
+    box-shadow: -5px 5px #F390A2;
+    border: 2px dashed black;
+    border-radius: 15px;
+}
+div#itensCarrinho {
+    margin-top: 20px;
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    background-color: white;
+    overflow-y: scroll; /* adiciona uma barra de rolagem lateral */
+}
+#imgNomeValor {
+    display: flex;
+    justify-content: space-between;
+}
+img.miniImg {
+    width: 100px;
+    height: 100px;
+}
+div#itensCarrinho p {
+    font-family: 'Courier New', Courier, monospace;
+    width: 185px;
+    color: black;
+    display: inline;
+    text-align: left;
+}
+#total {
+    height: 50px;
+    display: flex;
+    align-items: center;
+    font-family: 'Courier New', Courier, monospace;
+    background-color: #F1EBDF;
+    color: black;
+}
+#comprar {
+    height: 60px;
+    display: flex;
+    align-items: center;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #F390A2;
+    color: white;
+    cursor: pointer;
+}
+/* quem somos */
+section.quem-somos {
+    padding: 50px 0;
+    background-image: url('../imagens/estampa-2.jpg');
+}
+div.quem-somos {
+    padding: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+div.texto-foto {
+    margin: 50px auto;
+    padding: 25px;
+    max-width: 900px;
+    background-color: #F1EBDF;
+    border: 2px dashed black;
+    border-radius: 25px;
+}
+div.foto {
+    background-image: url('../imagens/mirian.jpg');
+    background-size: cover;
+    margin: 0 0 0 30px;
+    width: 350px;
+    height: 350px;
+    float: right; /* faz a foto "flutuar" para direita, com outros elementos envolta */
+    background-color: white;
+    border-radius: 20px;
+}
+div.texto-foto p::first-letter {
+    margin-left: 40px;
+}
+div.texto-foto h2 {
+    color: #987358;
+    text-align: center;
+}
+div.foto-2 {
+    background-image: url('../imagens/producao.jpg');
+    background-size: cover;
+    background-position: right;
+    margin: 0 30px 0 0;
+    width: 350px;
+    height: 350px;
+    float: left; /* faz a foto "flutuar" para esquerda, com outros elementos envolta */
+    background-color: white;
+    border-radius: 20px;
+}
+/* produtos */
+div#cardapio {
+    margin: 50px 0 0;
+    padding: 10px;
+    max-width: 700px;
+    background-color: #F1EBDF;
+    box-shadow: 0 0 0 10px #F390A2;
+    border: 2px solid black;
+    border-radius: 5px;
+}
+div#cardapio a {
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+    text-decoration: underline;
+    color: black;
+}
+/* equipe */
+section.equipe {
+    padding: 50px;
+    background-image: url('../imagens/estampa-2.jpg');
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+section.equipe img {
+    max-width: 100%;
+    margin: 50px 0;
+    box-shadow: 0 0 0 10px #F390A2;
+    border: 2px dashed black;
+    border-radius: 25px;
+}
+section.equipe div {
+    margin: 50px 0;
+    padding: 20px;
+    max-width: 700px;
+    background-color: #F1EBDF;
+    box-shadow: 0 0 0 10px #92D2C1;
+    border: 2px dashed black;
+    border-radius: 25px;
+}
+/* contato */
+section.contato {
+    padding: 50px 0;
+    background-image: url('../imagens/estampa-2.jpg');
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+div.contato {
+    margin: 50px auto;
+    padding: 50px;
+    max-width: 700px;
+    background-color: black;
+    border-radius: 20px;
+}
+fieldset {
+    padding: 50px;
+    border-style: dashed;
+}
+input[type=text], [type=email], textarea {
+    margin: 10px 0;
+}
+input {
+    width: 100%;
+}
+input, textarea, button.submit {
+    padding: 5px 10px;
+    border: none;
+    border-radius: 7px;
+    box-shadow: 5px 5px 0 #F390A2;
+}
+textarea {
+    width: 100%;
+    height: 250px;
+    resize: none;
+}
+button.submit {
+    padding: 10px;
+    box-shadow: 5px 5px 0 #F390A2;
+}
+button:hover {
+    cursor: pointer;
+}
+/* rodapé */
+footer.rodape {
+    background-color: black;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+ul.rodape li {
+    list-style-type: none;
+    padding: 10px 0;
+    font-family: Arial, Helvetica, sans-serif
+}
+/* direitos */
+div.direitos {
+    background-color: #8D5B3A;
+}
+p.direitos {
+    padding: 10px;
+    font-size: 15px;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+}
+/* tudo abaixo é para telas pequenas */
+@media only screen and (max-width: 1150px) {
+    /* navegação */
+    ul.nav li {
+        margin: 0px 10px;
+    }
+}
+@media only screen and (max-width: 750px) {
+    /* navegação */
+    nav {
+        display: block;
+        position: initial;
+    }
+    div#nav {
+        height: 0;
+    }
+    div#logo {
+        margin: 50px auto;
+    }
+    ul.nav {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    ul.nav li {
+        margin: 10px 0;
+    }
+}
+@media only screen and (max-width: 550px) {
+    /* slide */
+    div.img-button button {
+        margin: 10px;
+    }
+    /* quem somos */
+    section.quem-somos {
+        padding: 10px 0;
+    }
+    div.quem-somos {
+        padding: 0;
+    }
+    div.texto-foto {
+        padding: 10px;
+        display: flex;
+        flex-direction: column;
+    }
+    div.foto {
+        margin: auto;
+        width: 200px;
+        height: 200px;
+        float: initial;
+    }
+    div.foto-2 {
+        margin: auto;
+        width: 200px;
+        height: 200px;
+        float: initial;
+    }
+    /* produtos */
+    section.produtos {
+        padding: 10px 0;
+    }
+    div.produtos > div {
+        margin: 50px 0;
+    }
+    /* carrinho */
+    .sidenav {
+        width: 250px;
+        right: 0;
+    }
+    /* equipe */
+    section.equipe {
+        padding: 10px 0;
+    }
+    section.equipe div {
+        padding: 10px;
+    }
+    /* contato */
+    section.contato {
+        padding: 10px 0;
+    }
+    div.contato {
+        margin: 50px auto;
+        padding: 10px;
+    }
+    fieldset {
+        padding: 10px;
+    }
+    /* rodapé */
+    footer.rodape {
+        flex-direction: column;
+        padding-top: 50px;
+    }
+}
